@@ -16,11 +16,12 @@ console.log(
 );
 
 rlInterface.on('line', (input) => {
+  stream.write(`${input}\n`);
+  console.log(`"${input}" is a pretty wise thing to say`);
+
   if (input.toLowerCase() === 'exit') {
     rlInterface.close();
   }
-  stream.write(`${input}\n`);
-  console.log(`"${input}" is a pretty wise thing to say`);
 }); // line срабатывает если пользователь вводит в консоль и нажимает Enter
 
 rlInterface.on('close', () => {
